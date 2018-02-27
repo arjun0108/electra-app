@@ -7,8 +7,17 @@
     "start": "electron ."
   },
   "author": "Arjun Thakur",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "electron": "^1.8.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjun0108/electra-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arjun0108/electra-app/issues"
+  },
+  "homepage": "https://github.com/arjun0108/electra-app#readme"
 }
