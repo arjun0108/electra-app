@@ -1,0 +1,14 @@
+{
+  "name": "bleeper",
+  "version": "1.0.0",
+  "description": "System's Battery Checker",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Arjun Thakur",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.8.2"
+  }
+}

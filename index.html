@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link href="assets/css/anders-webfont.woff">
+        <title>Bleeper</title>
+    </head>
+    <body>
+
+        <!-- Draggable Titlebar -->
+        <div class="titlebar">
+            <h1>Bleep</h1>
+        </div>
+
+        <!-- Non-draggable window event handlers and nav reside at the top-right corner -->
+        <div class="nav">
+            <span id="minBtn" class="minWin" title="Minimize"></span>
+            <span id="maxBtn" class="maxWin" title="Maximize"></span>
+            <span id="closeBtn" class="closeWin" title="Close"></span>
+        </div>
+        <hr style="border-color:#222; clear:both; margin-top:-2px;" />
+
+        <div class="banner">
+            <span id="date"></span>
+        </div>
+
+        <div>
+            <!-- <button type="button" name="button" id="shell" onclick="openShell();">Open Shell</button> -->
+        </div>
+
+        <div class="footer">
+            <span id="date"></span>
+        </div>
+
+        <script type="text/javascript">
+            function updateClock() {
+                var now = new Date(), // current date
+                    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; // you get the idea
+                    time = now.getHours() + ':' + now.getMinutes(), // again, you get the idea
+
+                    // a cleaner way than string concatenation
+                    date = [now.getDate(),
+                            months[now.getMonth()],
+                            now.getFullYear()].join(' ');
+
+                // set the content of the element with the ID time to the formatted string
+                document.getElementById('date').innerHTML = [date, time].join(' / ');
+
+                // call this function again in 1000ms
+                setTimeout(updateClock, 1000);
+            }
+            updateClock();
+            // document.getElementById('date').innerHTML = window.Date();
+        </script>
+
+        <script>
+            require('./renderer.js')
+
+            // os required to use native controls
+            const os = require('os')
+            console.log(os);
+
+            // Remote required
+            const remote = require('electron').remote;
+
+            // Minimizing the window
+            document.getElementById('minBtn').addEventListener("click", function (e) {
+                 var window = remote.getCurrentWindow();
+                 window.minimize();
+            });
+
+            // Maximizing the window
+            document.getElementById('maxBtn').addEventListener("click", function (e) {
+                 var window = remote.getCurrentWindow();
+                 if (!window.isMaximized()) {
+                     window.maximize();
+                 } else {
+                     window.unmaximize();
+                 }
+            });
+
+            // Close the window
+            document.getElementById('closeBtn').addEventListener("click", function (e) {
+                 var window = remote.getCurrentWindow();
+                 window.close();
+            });
+
+        </script>
+        <script type="text/javascript">
+            console.log(process);
+            // shell = ${process.SHELL}
+            function openShell() {
+                process.SHELL;
+                console.log('done');
+            }
+        </script>
+    </body>
+</html>
