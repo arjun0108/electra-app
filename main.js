@@ -11,7 +11,7 @@ function createWindow(){
     win = new BrowserWindow({
         minWidth:800,
         minHeight:600,
-        icon:__dirname+'img/bleeper.ico',
+        icon:__dirname+'img/electra.ico',
         frame: false,
         titleBarStyle: 'hidden',
         backgroundColor: '#111',

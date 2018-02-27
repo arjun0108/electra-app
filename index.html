@@ -3,14 +3,13 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="assets/css/main.css">
-        <link href="assets/css/anders-webfont.woff">
-        <title>Bleeper</title>
+        <title>ELECTRA</title>
     </head>
     <body>
 
         <!-- Draggable Titlebar -->
         <div class="titlebar">
-            <h1>Bleep</h1>
+            <h1>ELECTRA</h1>
         </div>
 
         <!-- Non-draggable window event handlers and nav reside at the top-right corner -->
@@ -36,17 +35,13 @@
         <script type="text/javascript">
             function updateClock() {
                 var now = new Date(), // current date
-                    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; // you get the idea
-                    time = now.getHours() + ':' + now.getMinutes(), // again, you get the idea
-
-                    // a cleaner way than string concatenation
+                    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    time = now.getHours() + ':' + now.getMinutes(),
                     date = [now.getDate(),
                             months[now.getMonth()],
                             now.getFullYear()].join(' ');
 
-                // set the content of the element with the ID time to the formatted string
                 document.getElementById('date').innerHTML = [date, time].join(' / ');
-
                 // call this function again in 1000ms
                 setTimeout(updateClock, 1000);
             }
